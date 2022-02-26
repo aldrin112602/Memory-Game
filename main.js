@@ -16,7 +16,7 @@ let $ = (element) => {
 
 const container = $('#container');
 
-var score = 0,
+var level = 1,
     life = 5;
 
 function gameStart() {
@@ -87,7 +87,7 @@ function gameStart() {
 
         $('h3').textContent = 'Lives: ' + life;
 
-        $('h2').textContent = 'Scores: ' + score;
+        $('h2').textContent = 'Level: ' + level;
 
     }, 100)
 
@@ -112,10 +112,12 @@ function gameStart() {
                     setTimeout(() => {
 
                         alert('Well done!\n Next level unlocked.');
+                        
+                       gameStart();
 
                     }, 500);
 
-                    score++;
+                    level++;
 
                     life += 2;
 
@@ -123,7 +125,7 @@ function gameStart() {
 
                     clearInterval(interval);
 
-                    gameStart();
+                    
 
                 }
 
